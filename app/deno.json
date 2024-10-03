@@ -14,7 +14,7 @@
   },
   "exclude": ["**/_fresh/*"],
   "imports": {
-    "fresh": "../fresh/mod.ts",
+    "fresh": "../fresh/src/mod.ts",
     "fresh/": "../fresh/",
 
     "fresh-session": "../fresh-session/mod.ts",
