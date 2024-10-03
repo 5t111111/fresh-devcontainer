@@ -1,6 +1,6 @@
 import { App, fsRoutes, staticFiles } from "fresh/src/mod.ts";
 import { define, type State } from "./utils.ts";
-import { session } from "fresh-session/src/middleware.ts";
+import { session } from "fresh-session";
 
 export const app = new App<State>();
 app.use(staticFiles());

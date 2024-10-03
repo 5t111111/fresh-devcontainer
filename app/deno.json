@@ -14,9 +14,10 @@
   },
   "exclude": ["**/_fresh/*"],
   "imports": {
-    "@preact/signals": "npm:@preact/signals@^1.2.3",
-    "preact": "npm:preact@^10.24.1",
+    "fresh": "../fresh/mod.ts",
     "fresh/": "../fresh/",
+
+    "fresh-session": "../fresh-session/mod.ts",
 
     "@astral/astral": "jsr:@astral/astral@^0.4.6",
     "@fresh/plugin-tailwind": "./plugin-tailwindcss/src/mod.ts",
@@ -42,7 +43,6 @@
     "cssnano": "npm:cssnano@6.0.3",
     "esbuild": "npm:esbuild@0.23.1",
     "esbuild-wasm": "npm:esbuild-wasm@0.23.1",
-    "fresh": "./src/mod.ts",
     "fresh/compat": "./src/compat/mod.ts",
     "fresh/dev": "./src/dev/mod.ts",
     "fresh/runtime": "./src/runtime/shared.ts",
@@ -56,9 +56,7 @@
     "prismjs": "npm:prismjs@^1.29.0",
     "tailwindcss": "npm:tailwindcss@^3.4.1",
     "tailwindcss/plugin": "npm:/tailwindcss@^3.4.1/plugin.js",
-    "ts-morph": "npm:ts-morph@^22.0.0",
-
-    "fresh-session/": "../fresh-session/"
+    "ts-morph": "npm:ts-morph@^22.0.0"
   },
   "compilerOptions": {
     "lib": ["dom", "dom.asynciterable", "dom.iterable", "deno.ns"],
