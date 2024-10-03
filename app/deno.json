@@ -56,7 +56,9 @@
     "prismjs": "npm:prismjs@^1.29.0",
     "tailwindcss": "npm:tailwindcss@^3.4.1",
     "tailwindcss/plugin": "npm:/tailwindcss@^3.4.1/plugin.js",
-    "ts-morph": "npm:ts-morph@^22.0.0"
+    "ts-morph": "npm:ts-morph@^22.0.0",
+
+    "fresh-session/": "../fresh-session/"
   },
   "compilerOptions": {
     "lib": ["dom", "dom.asynciterable", "dom.iterable", "deno.ns"],
