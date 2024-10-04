@@ -1,4 +1,4 @@
-import { createDefine } from "fresh/src/mod.ts";
+import { createDefine } from "fresh";
 import type { Session } from "fresh-session";
 
 export interface State {

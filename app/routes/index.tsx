@@ -16,7 +16,7 @@ export const handler = define.handlers({
 export default define.page(function Home() {
   const count = useSignal(3);
 
-  throw new HttpError(500, "This is an error message");
+  // throw new HttpError(500, "This is an error message");
 
   return (
     <div class="px-4 py-8 mx-auto fresh-gradient">
