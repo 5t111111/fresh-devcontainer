@@ -2,13 +2,22 @@ import { useSignal } from "@preact/signals";
 import { define } from "../utils.ts";
 import Counter from "../islands/Counter.tsx";
 import { HttpError, page } from "fresh";
+import * as log from "@std/log";
 
 export const handler = define.handlers({
   GET: (ctx) => {
+    // Test session
     const session = ctx.state.session;
     console.log("session.foo - before set:", session.get("foo"));
     session.set("foo", { bar: "baz" });
     console.log("session.foo - after set:", session.get("foo"));
+
+    // Test logger
+    const logger = ctx.state.logger;
+    console.log("logger", logger);
+    logger.info("This is an info message");
+    log.info("NORMAL: This is an info message");
+
     return page();
   },
 });

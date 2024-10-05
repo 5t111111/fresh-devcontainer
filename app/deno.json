@@ -14,11 +14,6 @@
   },
   "exclude": ["**/_fresh/*"],
   "imports": {
-    "fresh": "../fresh/src/mod.ts",
-    "fresh/": "../fresh/",
-
-    "fresh-session": "../fresh-session/mod.ts",
-
     "@astral/astral": "jsr:@astral/astral@^0.4.6",
     "@fresh/plugin-tailwind": "./plugin-tailwindcss/src/mod.ts",
     "@luca/esbuild-deno-loader": "jsr:@luca/esbuild-deno-loader@^0.10.3",
@@ -35,6 +30,7 @@
     "@std/fs": "jsr:@std/fs@^0.229.1",
     "@std/html": "jsr:@std/html@^0.224.2",
     "@std/jsonc": "jsr:@std/jsonc@^0.224.1",
+    "@std/log": "jsr:@std/log@^0.224.8",
     "@std/media-types": "jsr:@std/media-types@^1.0.0-rc.1",
     "@std/path": "jsr:@std/path@^0.225.2",
     "@std/semver": "jsr:@std/semver@^0.224.3",
@@ -43,6 +39,10 @@
     "cssnano": "npm:cssnano@6.0.3",
     "esbuild": "npm:esbuild@0.23.1",
     "esbuild-wasm": "npm:esbuild-wasm@0.23.1",
+    "fresh": "../fresh/src/mod.ts",
+    "fresh-logger": "../fresh-logger/mod.ts",
+    "fresh-session": "../fresh-session/mod.ts",
+    "fresh/": "../fresh/",
     "fresh/compat": "./src/compat/mod.ts",
     "fresh/dev": "./src/dev/mod.ts",
     "fresh/runtime": "./src/runtime/shared.ts",
