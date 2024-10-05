@@ -1,14 +1,36 @@
 import { log, ulid } from "../deps.ts";
 
+/**
+ * Logger class that provides methods for logging messages with different severity levels.
+ * Each log message is appended with a unique request ID (`reqId`).
+ */
 export class Logger {
+  /**
+   * The unique request ID associated with this logger instance.
+   */
   private readonly reqId: string;
+
+  /**
+   * The underlying logger instance from the @std/log.
+   */
   private readonly logger: log.Logger;
 
+  /**
+   * Constructs a new Logger instance.
+   * Generates a unique request ID (`reqId`) and initializes the logger with the name "fresh-logger".
+   */
   constructor() {
     this.reqId = ulid();
     this.logger = log.getLogger("fresh-logger");
   }
 
+  /**
+   * Logs a debug message.
+   *
+   * @param msg - The message to log. Can be a string or a function that returns a string.
+   * @param args - Additional arguments to log.
+   * @returns The logged message if `msg` is a function, otherwise `undefined`.
+   */
   debug<T>(
     msg: (T extends log.GenericFunction ? never : T) | (() => T),
     ...args: unknown[]
@@ -23,6 +45,13 @@ export class Logger {
     }
   }
 
+  /**
+   * Logs an info message.
+   *
+   * @param msg - The message to log. Can be a string or a function that returns a string.
+   * @param args - Additional arguments to log.
+   * @returns The logged message if `msg` is a function, otherwise `undefined`.
+   */
   info<T>(
     msg: (T extends log.GenericFunction ? never : T) | (() => T),
     ...args: unknown[]
@@ -37,6 +66,13 @@ export class Logger {
     }
   }
 
+  /**
+   * Logs a warning message.
+   *
+   * @param msg - The message to log. Can be a string or a function that returns a string.
+   * @param args - Additional arguments to log.
+   * @returns The logged message if `msg` is a function, otherwise `undefined`.
+   */
   warn<T>(
     msg: (T extends log.GenericFunction ? never : T) | (() => T),
     ...args: unknown[]
@@ -51,6 +87,13 @@ export class Logger {
     }
   }
 
+  /**
+   * Logs an error message.
+   *
+   * @param msg - The message to log. Can be a string or a function that returns a string.
+   * @param args - Additional arguments to log.
+   * @returns The logged message if `msg` is a function, otherwise `undefined`.
+   */
   error<T>(
     msg: (T extends log.GenericFunction ? never : T) | (() => T),
     ...args: unknown[]
@@ -65,6 +108,13 @@ export class Logger {
     }
   }
 
+  /**
+   * Logs an error message.
+   *
+   * @param msg - The message to log. Can be a string or a function that returns a string.
+   * @param args - Additional arguments to log.
+   * @returns The logged message if `msg` is a function, otherwise `undefined`.
+   */
   critical<T>(
     msg: (T extends log.GenericFunction ? never : T) | (() => T),
     ...args: unknown[]

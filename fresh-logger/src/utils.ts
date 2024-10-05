@@ -14,7 +14,7 @@ import { Logger } from "./logger.ts";
  */
 export function getFreshLogger<T extends { logger: Logger }>(
   ctx?: FreshContext<T> | undefined,
-) {
+): Logger | log.Logger {
   if (
     ctx && ctx.state && ctx.state.logger && ctx.state.logger instanceof Logger
   ) {
