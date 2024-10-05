@@ -1,29 +1,21 @@
 import type { log } from "../deps.ts";
+import { extractReqId } from "./utils.ts";
 
+/**
+ * Formats a log record into a JSON string with a reqId.
+ *
+ * @param logRecord The log record to format.
+ * @returns A JSON string representing the formatted log record.
+ */
 export function freshLoggerJsonFormatter(logRecord: log.LogRecord): string {
-  let reqId: string | undefined;
-  const argsWithoutReqId = [];
-
-  for (const arg of logRecord.args) {
-    if (arg && typeof arg === "object") {
-      const objectArg = arg as Record<string, unknown>;
-
-      if (objectArg.reqId) {
-        reqId = objectArg.reqId as string;
-      } else {
-        argsWithoutReqId.push(arg);
-      }
-    } else {
-      argsWithoutReqId.push(arg);
-    }
-  }
+  const { reqId, args } = extractReqId(logRecord);
 
   return JSON.stringify({
     level: logRecord.levelName,
     datetime: logRecord.datetime.getTime(),
     message: logRecord.msg,
     reqId,
-    args: flattenArgs(argsWithoutReqId),
+    args: flattenArgs(args),
   });
 }
 

@@ -3,6 +3,7 @@ import { define } from "../utils.ts";
 import Counter from "../islands/Counter.tsx";
 import { HttpError, page } from "fresh";
 import * as log from "@std/log";
+import { getFreshLogger } from "../../fresh-logger/src/utils.ts";
 
 export const handler = define.handlers({
   GET: (ctx) => {
@@ -13,9 +14,9 @@ export const handler = define.handlers({
     console.log("session.foo - after set:", session.get("foo"));
 
     // Test logger
-    const logger = ctx.state.logger;
+    const freshLogger = getFreshLogger(ctx);
     // console.log("logger", logger);
-    logger.info(
+    freshLogger.info(
       "This is an info message",
       "yapya!",
       [1, 2, 3],
@@ -23,7 +24,37 @@ export const handler = define.handlers({
       undefined,
       {},
     );
-    log.info("NORMAL: This is an info message");
+
+    const freshLoggerWithNoCtx = getFreshLogger();
+    // console.log("logger", logger);
+    freshLoggerWithNoCtx.info(
+      "This is an info message",
+      "yapya!",
+      [1, 2, 3],
+      null,
+      undefined,
+      {},
+    );
+
+    const freshLogger2 = getFreshLogger(ctx);
+    // console.log("logger", logger);
+    freshLogger.info(
+      "This is an info message 2",
+      "yapya!",
+      [1, 2, 3],
+      null,
+      undefined,
+      {},
+    );
+
+    log.info(
+      "NORMAL: This is an info message",
+      "yapya!",
+      [1, 2, 3],
+      null,
+      undefined,
+      {},
+    );
 
     return page();
   },

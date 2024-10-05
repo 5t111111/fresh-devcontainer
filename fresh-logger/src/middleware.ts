@@ -26,10 +26,15 @@ export function logger<State extends SessionMiddlewareState>(): MiddlewareFn<
   return async function handler(
     ctx,
   ): Promise<Response> {
-    console.log("logger middleware");
-    ctx.state.logger = new Logger();
+    const logger = new Logger();
+
+    logger.info("Request incoming");
+
+    ctx.state.logger = logger;
 
     const resp = await ctx.next();
+
+    logger.info("Request ended");
 
     return resp;
   };
