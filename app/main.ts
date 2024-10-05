@@ -1,7 +1,7 @@
 import { App, fsRoutes, staticFiles } from "fresh/src/mod.ts";
 import { define, type State } from "./utils.ts";
 import { session } from "fresh-session";
-import { logger } from "../fresh-logger/src/middleware.ts";
+import { freshLoggerJsonFormatter, logger } from "../fresh-logger/mod.ts";
 import * as log from "@std/log";
 
 export const app = new App<State>();
@@ -48,23 +48,25 @@ app.use(logger());
 // });
 log.setup({
   handlers: {
-    // console: new log.ConsoleHandler("DEBUG"),
-    customJsonFmt: new log.ConsoleHandler("DEBUG", {
-      formatter: (record) =>
-        JSON.stringify({
-          lvl: record.level,
-          msg: record.msg,
-          time: record.datetime.toISOString(),
-          reqId: (record.args[0] as any).reqId,
-        }),
-      useColors: false,
+    console: new log.ConsoleHandler("DEBUG"),
+    jsonStdout: new log.ConsoleHandler("DEBUG", {
+      formatter: log.formatters.jsonFormatter,
+      // useColors: false,
+    }),
+    freshLoggerJson: new log.ConsoleHandler("DEBUG", {
+      formatter: freshLoggerJsonFormatter,
+      // useColors: false,
     }),
   },
 
   loggers: {
+    default: {
+      level: "DEBUG",
+      handlers: ["jsonStdout"],
+    },
     "fresh-logger": {
       level: "DEBUG",
-      handlers: ["customJsonFmt"],
+      handlers: ["freshLoggerJson"],
     },
   },
 });

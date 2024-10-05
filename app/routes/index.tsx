@@ -14,8 +14,15 @@ export const handler = define.handlers({
 
     // Test logger
     const logger = ctx.state.logger;
-    console.log("logger", logger);
-    logger.info("This is an info message");
+    // console.log("logger", logger);
+    logger.info(
+      "This is an info message",
+      "yapya!",
+      [1, 2, 3],
+      null,
+      undefined,
+      {},
+    );
     log.info("NORMAL: This is an info message");
 
     return page();
