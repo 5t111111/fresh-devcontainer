@@ -75,7 +75,7 @@ app.use(session({
   // Key must be at least 32 characters long.
   encryptionKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   // Optional; the session does not expire if not provided.
-  expireAfterSeconds: 5,
+  expireAfterSeconds: 60,
   // Optional; default is "session".
   sessionCookieName: "my_session",
   // Optional; see https://jsr.io/@std/http/doc/cookie/~/Cookie

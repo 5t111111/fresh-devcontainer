@@ -1,26 +1,70 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@fresh/core@2.0.0-alpha.21": "2.0.0-alpha.21",
+    "jsr:@std/assert@0.226": "0.226.0",
     "jsr:@std/assert@1": "1.0.6",
+    "jsr:@std/encoding@^1.0.0-rc.1": "1.0.5",
     "jsr:@std/fmt@^1.0.2": "1.0.2",
+    "jsr:@std/fmt@~0.225.3": "0.225.6",
     "jsr:@std/fs@^1.0.4": "1.0.4",
+    "jsr:@std/fs@~0.229.1": "0.229.3",
+    "jsr:@std/html@~0.224.2": "0.224.2",
     "jsr:@std/internal@^1.0.4": "1.0.4",
     "jsr:@std/io@~0.224.9": "0.224.9",
     "jsr:@std/log@~0.224.8": "0.224.8",
-    "jsr:@std/ulid@1": "1.0.0"
+    "jsr:@std/media-types@^1.0.0-rc.1": "1.0.3",
+    "jsr:@std/path@1.0.0-rc.1": "1.0.0-rc.1",
+    "jsr:@std/path@~0.225.2": "0.225.2",
+    "jsr:@std/ulid@1": "1.0.0",
+    "npm:@preact/signals@^1.2.3": "1.3.0_preact@10.24.2",
+    "npm:preact-render-to-string@^6.5.11": "6.5.11_preact@10.24.2",
+    "npm:preact@^10.24.0": "10.24.2"
   },
   "jsr": {
+    "@fresh/core@2.0.0-alpha.21": {
+      "integrity": "aa593f3787000d9233fa24b62aec5fdc410134f3d2219730ae21a73f01dd66b8",
+      "dependencies": [
+        "jsr:@std/encoding",
+        "jsr:@std/fmt@~0.225.3",
+        "jsr:@std/fs@~0.229.1",
+        "jsr:@std/html",
+        "jsr:@std/media-types",
+        "jsr:@std/path@~0.225.2",
+        "npm:@preact/signals",
+        "npm:preact",
+        "npm:preact-render-to-string"
+      ]
+    },
+    "@std/assert@0.226.0": {
+      "integrity": "0dfb5f7c7723c18cec118e080fec76ce15b4c31154b15ad2bd74822603ef75b3"
+    },
     "@std/assert@1.0.6": {
       "integrity": "1904c05806a25d94fe791d6d883b685c9e2dcd60e4f9fc30f4fc5cf010c72207",
       "dependencies": [
         "jsr:@std/internal"
       ]
     },
+    "@std/encoding@1.0.5": {
+      "integrity": "ecf363d4fc25bd85bd915ff6733a7e79b67e0e7806334af15f4645c569fefc04"
+    },
+    "@std/fmt@0.225.6": {
+      "integrity": "aba6aea27f66813cecfd9484e074a9e9845782ab0685c030e453a8a70b37afc8"
+    },
     "@std/fmt@1.0.2": {
       "integrity": "87e9dfcdd3ca7c066e0c3c657c1f987c82888eb8103a3a3baa62684ffeb0f7a7"
     },
+    "@std/fs@0.229.3": {
+      "integrity": "783bca21f24da92e04c3893c9e79653227ab016c48e96b3078377ebd5222e6eb",
+      "dependencies": [
+        "jsr:@std/path@1.0.0-rc.1"
+      ]
+    },
     "@std/fs@1.0.4": {
       "integrity": "2907d32d8d1d9e540588fd5fe0ec21ee638134bd51df327ad4e443aaef07123c"
+    },
+    "@std/html@0.224.2": {
+      "integrity": "2f7bfd71081fad988af9ce991750ed1574917dc8e6fae0e151987ea020d1e21a"
     },
     "@std/internal@1.0.4": {
       "integrity": "62e8e4911527e5e4f307741a795c0b0a9e6958d0b3790716ae71ce085f755422"
@@ -31,13 +75,46 @@
     "@std/log@0.224.8": {
       "integrity": "8938225caf405cbf0a4871191fa3d55f2fabe3363f4235fdb20ebe2620ecda43",
       "dependencies": [
-        "jsr:@std/fmt",
-        "jsr:@std/fs",
+        "jsr:@std/fmt@^1.0.2",
+        "jsr:@std/fs@^1.0.4",
         "jsr:@std/io"
       ]
     },
+    "@std/media-types@1.0.3": {
+      "integrity": "b12d30a7852f7578f4d210622df713bbfd1cbdd9b4ec2eaf5c1845ab70bab159"
+    },
+    "@std/path@0.225.2": {
+      "integrity": "0f2db41d36b50ef048dcb0399aac720a5348638dd3cb5bf80685bf2a745aa506",
+      "dependencies": [
+        "jsr:@std/assert@0.226"
+      ]
+    },
+    "@std/path@1.0.0-rc.1": {
+      "integrity": "b8c00ae2f19106a6bb7cbf1ab9be52aa70de1605daeb2dbdc4f87a7cbaf10ff6"
+    },
     "@std/ulid@1.0.0": {
       "integrity": "d41c3d27a907714413649fee864b7cde8d42ee68437d22b79d5de4f81d808780"
+    }
+  },
+  "npm": {
+    "@preact/signals-core@1.8.0": {
+      "integrity": "sha512-OBvUsRZqNmjzCZXWLxkZfhcgT+Fk8DDcT/8vD6a1xhDemodyy87UJRJfASMuSD8FaAIeGgGm85ydXhm7lr4fyA=="
+    },
+    "@preact/signals@1.3.0_preact@10.24.2": {
+      "integrity": "sha512-EOMeg42SlLS72dhoq6Vjq08havnLseWmPQ8A0YsgIAqMgWgx7V1a39+Pxo6i7SY5NwJtH4849JogFq3M67AzWg==",
+      "dependencies": [
+        "@preact/signals-core",
+        "preact"
+      ]
+    },
+    "preact-render-to-string@6.5.11_preact@10.24.2": {
+      "integrity": "sha512-ubnauqoGczeGISiOh6RjX0/cdaF8v/oDXIjO85XALCQjwQP+SB4RDXXtvZ6yTYSjG+PC1QRP2AhPgCEsM2EvUw==",
+      "dependencies": [
+        "preact"
+      ]
+    },
+    "preact@10.24.2": {
+      "integrity": "sha512-1cSoF0aCC8uaARATfrlz4VCBqE8LwZwRfLgkxJOQwAlQt6ayTmi0D9OF7nXid1POI5SZidFuG9CnlXbDfLqY/Q=="
     }
   },
   "workspace": {
