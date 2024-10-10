@@ -1,4 +1,4 @@
-import type { log } from "../deps.ts";
+import type { LogRecord } from "@std/log";
 import { extractReqId } from "./utils.ts";
 
 /**
@@ -7,7 +7,7 @@ import { extractReqId } from "./utils.ts";
  * @param logRecord The log record to format.
  * @returns A JSON string representing the formatted log record.
  */
-export function freshLoggerJsonFormatter(logRecord: log.LogRecord): string {
+export function freshLoggerJsonFormatter(logRecord: LogRecord): string {
   const { reqId, args } = extractReqId(logRecord);
 
   return JSON.stringify({

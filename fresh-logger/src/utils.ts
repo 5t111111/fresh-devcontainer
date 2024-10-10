@@ -1,5 +1,5 @@
-import type { FreshContext } from "fresh";
-import { log } from "../deps.ts";
+import type { FreshContext } from "@fresh/core";
+import { getLogger, type Logger as StdLogger, type LogRecord } from "@std/log";
 import { Logger } from "./logger.ts";
 
 /**
@@ -14,14 +14,14 @@ import { Logger } from "./logger.ts";
  */
 export function getFreshLogger<T extends { logger: Logger }>(
   ctx?: FreshContext<T> | undefined,
-): Logger | log.Logger {
+): Logger | StdLogger {
   if (
     ctx && ctx.state && ctx.state.logger && ctx.state.logger instanceof Logger
   ) {
     return ctx.state.logger;
   }
 
-  return log.getLogger("fresh-logger");
+  return getLogger("fresh-logger");
 }
 
 /**
@@ -30,7 +30,7 @@ export function getFreshLogger<T extends { logger: Logger }>(
  * @param logRecord The log record from which to extract the request ID.
  * @returns An object containing the extracted `reqId` (if any) and the remaining arguments. The `reqId` will be a string if found, otherwise `undefined`. The `args` will be an array of the remaining arguments excluding the object that contained the `reqId`.
  */
-export function extractReqId(logRecord: log.LogRecord): {
+export function extractReqId(logRecord: LogRecord): {
   reqId: string | undefined;
   args: unknown[];
 } {

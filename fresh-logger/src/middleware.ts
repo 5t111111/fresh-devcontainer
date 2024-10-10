@@ -1,4 +1,4 @@
-import type { MiddlewareFn } from "../../fresh/src/mod.ts";
+import type { MiddlewareFn } from "@fresh/core";
 import { Logger } from "./logger.ts";
 
 /**

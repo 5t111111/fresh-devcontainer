@@ -1,4 +1,4 @@
-import { App, fsRoutes, staticFiles } from "fresh/src/mod.ts";
+import { App, fsRoutes, staticFiles } from "fresh";
 import { define, type State } from "./utils.ts";
 import { session } from "fresh-session";
 import { freshLoggerJsonFormatter, logger } from "../fresh-logger/mod.ts";

@@ -1,8 +1,14 @@
-import { log, ulid } from "../deps.ts";
+import {
+  type GenericFunction,
+  getLogger,
+  type Logger as StdLogger,
+} from "@std/log";
+import { ulid } from "@std/ulid";
 
 /**
  * Logger class that provides methods for logging messages with different severity levels.
  * Each log message is appended with a unique request ID (`reqId`).
+ * TODO: Change class name to avoid name conflict.
  */
 export class Logger {
   /**
@@ -13,7 +19,7 @@ export class Logger {
   /**
    * The underlying logger instance from the @std/log.
    */
-  private readonly logger: log.Logger;
+  private readonly logger: StdLogger;
 
   /**
    * Constructs a new Logger instance.
@@ -21,7 +27,7 @@ export class Logger {
    */
   constructor() {
     this.reqId = ulid();
-    this.logger = log.getLogger("fresh-logger");
+    this.logger = getLogger("fresh-logger");
   }
 
   /**
@@ -32,7 +38,7 @@ export class Logger {
    * @returns The logged message if `msg` is a function, otherwise `undefined`.
    */
   debug<T>(
-    msg: (T extends log.GenericFunction ? never : T) | (() => T),
+    msg: (T extends GenericFunction ? never : T) | (() => T),
     ...args: unknown[]
   ): T | undefined {
     args.push({ reqId: this.reqId });
@@ -53,7 +59,7 @@ export class Logger {
    * @returns The logged message if `msg` is a function, otherwise `undefined`.
    */
   info<T>(
-    msg: (T extends log.GenericFunction ? never : T) | (() => T),
+    msg: (T extends GenericFunction ? never : T) | (() => T),
     ...args: unknown[]
   ): T | undefined {
     args.push({ reqId: this.reqId });
@@ -74,7 +80,7 @@ export class Logger {
    * @returns The logged message if `msg` is a function, otherwise `undefined`.
    */
   warn<T>(
-    msg: (T extends log.GenericFunction ? never : T) | (() => T),
+    msg: (T extends GenericFunction ? never : T) | (() => T),
     ...args: unknown[]
   ): T | undefined {
     args.push({ reqId: this.reqId });
@@ -95,7 +101,7 @@ export class Logger {
    * @returns The logged message if `msg` is a function, otherwise `undefined`.
    */
   error<T>(
-    msg: (T extends log.GenericFunction ? never : T) | (() => T),
+    msg: (T extends GenericFunction ? never : T) | (() => T),
     ...args: unknown[]
   ): T | undefined {
     args.push({ reqId: this.reqId });
@@ -116,7 +122,7 @@ export class Logger {
    * @returns The logged message if `msg` is a function, otherwise `undefined`.
    */
   critical<T>(
-    msg: (T extends log.GenericFunction ? never : T) | (() => T),
+    msg: (T extends GenericFunction ? never : T) | (() => T),
     ...args: unknown[]
   ): T | undefined {
     args.push({ reqId: this.reqId });
