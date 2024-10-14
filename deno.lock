@@ -22,6 +22,8 @@
     "jsr:@std/http@^1.0.7": "1.0.7",
     "jsr:@std/http@^1.0.8": "1.0.8",
     "jsr:@std/io@0.225": "0.225.0",
+    "jsr:@std/json@^1.0.0-rc.1": "1.0.0",
+    "jsr:@std/json@~0.213.1": "0.213.1",
     "jsr:@std/jsonc@0.213": "0.213.1",
     "jsr:@std/jsonc@~0.224.1": "0.224.3",
     "jsr:@std/log@~0.224.8": "0.224.9",
@@ -156,14 +158,24 @@
     "@std/io@0.225.0": {
       "integrity": "c1db7c5e5a231629b32d64b9a53139445b2ca640d828c26bf23e1c55f8c079b3"
     },
+    "@std/json@0.213.1": {
+      "integrity": "f572b1de605d07c4a5602445dac54bfc51b1fb87a3710a17aed2608bfca54e68"
+    },
+    "@std/json@1.0.0": {
+      "integrity": "985c1e544918d42e4e84072fc739ac4a19c3a5093292c99742ffcdd03fb6a268"
+    },
     "@std/jsonc@0.213.1": {
       "integrity": "5578f21aa583b7eb7317eed077ffcde47b294f1056bdbb9aacec407758637bfe",
       "dependencies": [
-        "jsr:@std/assert@~0.213.1"
+        "jsr:@std/assert@~0.213.1",
+        "jsr:@std/json@~0.213.1"
       ]
     },
     "@std/jsonc@0.224.3": {
-      "integrity": "c10770a31489f5b85a3562d9b107c497666d8b6a49291ee2711d84da2616c2d6"
+      "integrity": "c10770a31489f5b85a3562d9b107c497666d8b6a49291ee2711d84da2616c2d6",
+      "dependencies": [
+        "jsr:@std/json@^1.0.0-rc.1"
+      ]
     },
     "@std/log@0.224.9": {
       "integrity": "419d04e4d93e6b1a0205ac3f94809621cfec3d328d09fec9ec59cafa3b3fcaee",

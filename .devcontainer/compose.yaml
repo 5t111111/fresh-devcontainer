@@ -1,7 +1,6 @@
 services:
-  app:
-    build:
-      context: ./docker/app
+  devcontainer:
+    image: ubuntu:22.04
     init: true
     command: sleep infinity
     volumes:

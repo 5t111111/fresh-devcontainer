@@ -1,39 +1,29 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose
 {
-  "name": "fresh-devcontainer",
-  // Update the 'dockerComposeFile' list if you have more compose files or use different names.
-  // The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
+  "name": "${localWorkspaceFolderBasename}",
   "dockerComposeFile": [
     "compose.yaml"
   ],
-  // The 'service' property is the name of the service for the container that VS Code should
-  // use. Update this value and .devcontainer/docker-compose.yml to the real service name.
-  "service": "app",
-  // The optional 'workspaceFolder' property is the path VS Code should open by default when
-  // connected. This is typically a file mount in .devcontainer/docker-compose.yml
-  "workspaceFolder": "/workspaces/fresh-devcontainer",
-  // Features to add to the dev container. More info: https://containers.dev/features.
+  "service": "devcontainer",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
       "configureZshAsDefaultShell": true,
-      "username": "deno"
+      "username": "deno",
+      "userUid": "1993",
+      "userGid": "1993"
+    },
+    "ghcr.io/devcontainers/features/git:1": {
+      "ppa": true
+    },
+    "ghcr.io/devcontainers-community/features/deno:1": {
+      // Specify a specific Deno version to install. Must be a full version
+      // specifier like `30.0.0` or `latest`. Default is `latest`.
+      "version": "latest"
     }
   },
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [],
-  // Uncomment the next line if you want start specific services in your Docker Compose config.
-  // "runServices": [],
-  // Uncomment the next line if you want to keep your containers running after VS Code shuts down.
-  // "shutdownAction": "none",
-  // Run command on host when initializing.
-  "initializeCommand": ".devcontainer/initializeCommand/initializeCommand.bash",
-  // Uncomment the next line to run commands after the container is created.
-  "postCreateCommand": ".devcontainer/postCreateCommand/postCreateCommand.bash",
-  // Avoiding Dubious Ownership in Dev Containers
-  // https://www.kenmuse.com/blog/avoiding-dubious-ownership-in-dev-containers/
-  "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
-  // Configure tool-specific properties.
+  "initializeCommand": ".devcontainer/initialize_command.sh",
+  "postStartCommand": "sudo git config --system --add safe.directory ${containerWorkspaceFolder}",
+  "postCreateCommand": ".devcontainer/post_create_command.sh",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -42,6 +32,12 @@
       ]
     }
   },
-  // Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
-  "remoteUser": "deno"
+  "remoteUser": "deno",
+  "containerEnv": {
+    // In the case of Linux, the UID and GID of the deno user are set to be the
+    // same as those of the host user, which can sometimes cause permission
+    // errors when writing to /deno-dir. To avoid this, set the DENO_DIR to a
+    // path within the home directory.
+    "DENO_DIR": "/home/deno/deno-dir"
+  }
 }

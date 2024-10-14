@@ -1,6 +1,6 @@
-[submodule "fresh"]
-	path = fresh
-	url = https://github.com/denoland/fresh.git
-[submodule "fresh-session"]
-	path = fresh-session
+[submodule "modules/fresh"]
+	path = modules/fresh
+	url = git@github.com:denoland/fresh.git
+[submodule "modules/fresh-session"]
+	path = modules/fresh-session
 	url = git@github.com:5t111111/fresh-session.git

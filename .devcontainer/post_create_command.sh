@@ -9,8 +9,6 @@ Application Setup
 ================================================================================
 EOS
 
-cd app
-
 cat << EOS
 --------------------------------------------------------------------------------
 deno info
@@ -38,7 +36,6 @@ Dev Container setup is complete.
 
 Please navigate to the app directory and start the development server with deno task start.
 
-$ cd app
 $ deno task start
 
 EOS

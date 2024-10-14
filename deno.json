@@ -31,8 +31,8 @@
     "jsxPrecompileSkipElements": ["a", "img", "source", "body", "html", "head"]
   },
   "patch": [
-    "../fresh",
-    "../fresh-session",
-    "../fresh-logger"
+    "./modules/fresh",
+    "./modules/fresh-session",
+    "./modules/fresh-logger"
   ]
 }

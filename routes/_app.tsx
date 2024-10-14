@@ -1,4 +1,4 @@
-import type { PageProps } from "fresh/src/mod.ts";
+import type { PageProps } from "fresh";
 
 export default function App({ Component }: PageProps) {
   return (
