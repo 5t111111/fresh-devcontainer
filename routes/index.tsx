@@ -9,9 +9,9 @@ export const handler = define.handlers({
   GET: (ctx) => {
     // Test session
     const session = ctx.state.session;
-    console.log("session.foo - before set:", session.get("foo"));
+    console.log("session.foo - before set:", session.get<string>("foo"));
     session.set("foo", { bar: "baz" });
-    console.log("session.foo - after set:", session.get("foo"));
+    console.log("session.foo - after set:", session.get<string>("foo"));
 
     // Test logger
     const freshLogger = getFreshLogger(ctx);
