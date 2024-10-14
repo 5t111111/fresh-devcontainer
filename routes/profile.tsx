@@ -1,6 +1,6 @@
 import { page, PageProps } from "fresh";
 import { define } from "../utils.ts";
-import { Jsonify } from "fresh-session";
+import { Jsonify } from "@5t111111/fresh-session";
 
 interface User {
   id: number;

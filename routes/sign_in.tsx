@@ -1,4 +1,4 @@
-import { Session } from "fresh-session";
+import { Session } from "@5t111111/fresh-session";
 import { define } from "../utils.ts";
 
 interface State {

@@ -1,7 +1,7 @@
 import { App, fsRoutes, staticFiles } from "fresh";
 import { define, type State } from "./utils.ts";
-import { session } from "fresh-session";
-import { freshLoggerJsonFormatter, logger } from "fresh-logger";
+import { session } from "@5t111111/fresh-session";
+import { freshLoggerJsonFormatter, logger } from "@5t111111/fresh-logger";
 import * as log from "@std/log";
 
 export const app = new App<State>();

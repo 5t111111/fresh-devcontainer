@@ -3,7 +3,7 @@ import { define } from "../utils.ts";
 import Counter from "../islands/Counter.tsx";
 import { HttpError, page } from "fresh";
 import * as log from "@std/log";
-import { getFreshLogger } from "fresh-logger";
+import { getFreshLogger } from "@5t111111/fresh-logger";
 
 export const handler = define.handlers({
   GET: (ctx) => {
