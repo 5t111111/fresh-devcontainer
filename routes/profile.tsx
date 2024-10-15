@@ -1,6 +1,6 @@
 import { page, PageProps } from "fresh";
 import { define } from "../utils.ts";
-import { Jsonify } from "@5t111111/fresh-session";
+import { type JsonCompatible } from "@5t111111/fresh-session";
 
 interface User {
   id: number;
@@ -12,16 +12,23 @@ interface Props {
 }
 
 export const handler = define.handlers({
-  GET: (ctx) => {
+  async GET(ctx) {
     const session = ctx.state.session;
-    const user = session.get<Jsonify<User>>("user");
+    const isAuthenticated = session.get<boolean>("isAuthenticated");
+    const userId = session.get<number>("userId");
 
-    if (!user) {
+    console.log(isAuthenticated, userId);
+
+    if (!isAuthenticated) {
       return new Response(null, {
         status: 307,
         headers: { Location: "/sign_in" },
       });
     }
+
+    const user = { id: userId, name: "Deno" };
+
+    console.log(user);
 
     return page({
       user,
