@@ -27,7 +27,17 @@ export function logger<State extends LoggerMiddlewareState>(): MiddlewareFn<
   ): Promise<Response> {
     const logger = new Logger();
 
-    logger.info("Request incoming");
+    const { req } = ctx;
+
+    const requestDetails = {
+      method: req.method,
+      url: req.url,
+      headers: req.headers,
+    };
+
+    console.log("requestDetails", requestDetails);
+
+    logger.info("Request incoming", { req: requestDetails });
 
     ctx.state.logger = logger;
 

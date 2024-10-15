@@ -48,6 +48,7 @@ export const handler = define.handlers({
     );
 
     log.info(
+      // "NORMAL: This is an info message",
       "NORMAL: This is an info message",
       "yapya!",
       [1, 2, 3],
