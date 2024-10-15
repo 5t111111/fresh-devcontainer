@@ -4,7 +4,7 @@ import { Logger } from "./logger.ts";
 /**
  * Custom State includes the logger instance associated with the current request.
  */
-export interface SessionMiddlewareState {
+export interface LoggerMiddlewareState {
   logger: Logger;
 }
 
@@ -13,13 +13,12 @@ export interface SessionMiddlewareState {
  *
  * @returns Middleware handler.
  */
-export function logger<State extends SessionMiddlewareState>(): MiddlewareFn<
+export function logger<State extends LoggerMiddlewareState>(): MiddlewareFn<
   State
 > {
   /**
    * Middleware handler.
    *
-   * @param req The incoming request object.
    * @param ctx The context object containing state and other information.
    * @returns The response object.
    */
