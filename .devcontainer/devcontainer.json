@@ -18,7 +18,7 @@
     "ghcr.io/devcontainers-community/features/deno:1": {
       // Specify a specific Deno version to install. Must be a full version
       // specifier like `30.0.0` or `latest`. Default is `latest`.
-      "version": "2.0.1"
+      "version": "2.0.2"
     }
   },
   "initializeCommand": ".devcontainer/initialize_command.sh",
