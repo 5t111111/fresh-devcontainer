@@ -1472,11 +1472,11 @@
     "dependencies": [
       "jsr:@5t111111/fresh-logger@*",
       "jsr:@5t111111/fresh-session@*",
-      "jsr:@fresh/core@^2.0.0-alpha.22",
+      "jsr:@fresh/core@^2.0.0-alpha.34",
       "jsr:@fresh/plugin-tailwind@^0.0.1-alpha.7",
       "jsr:@std/log@~0.224.9",
-      "npm:@preact/signals@^1.2.3",
-      "npm:preact@^10.24.1",
+      "npm:@preact/signals@^2.0.4",
+      "npm:preact@^10.26.6",
       "npm:tailwindcss@^3.4.1"
     ]
   }
