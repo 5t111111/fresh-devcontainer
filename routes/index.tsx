@@ -1,7 +1,7 @@
 import { useSignal } from "@preact/signals";
 import { define } from "../utils.ts";
 import Counter from "../islands/Counter.tsx";
-import { HttpError, page } from "fresh";
+import { page } from "fresh";
 import * as log from "@std/log";
 import { getFreshLogger } from "@5t111111/fresh-logger";
 
@@ -63,8 +63,6 @@ export const handler = define.handlers({
 
 export default define.page(function Home() {
   const count = useSignal(3);
-
-  // throw new HttpError(500, "This is an error message");
 
   return (
     <div class="px-4 py-8 mx-auto fresh-gradient">

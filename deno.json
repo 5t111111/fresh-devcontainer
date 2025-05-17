@@ -1,7 +1,6 @@
 {
-  "name": "@fresh-devcontainer/app",
   "tasks": {
-    "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
+    "check": "deno fmt --check . && deno lint . && deno check **/*.ts && deno check **/*.tsx",
     "dev": "deno run -A --watch=static/,routes/ dev.ts",
     "build": "deno run -A dev.ts build",
     "start": "deno run -A main.ts",
@@ -29,7 +28,6 @@
     "@5t111111/fresh-logger": "jsr:@5t111111/fresh-logger",
     "@5t111111/fresh-session": "jsr:@5t111111/fresh-session"
   },
-  "exports": {},
   "compilerOptions": {
     "lib": [
       "dom",
