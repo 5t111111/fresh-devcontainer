@@ -21,13 +21,13 @@
   "imports": {
     "fresh": "jsr:@fresh/core@^2.0.0-alpha.34",
     "@fresh/plugin-tailwind": "jsr:@fresh/plugin-tailwind@^0.0.1-alpha.7",
-    "@preact/signals": "npm:@preact/signals@^2.0.4",
-    "@std/log": "jsr:@std/log@^0.224.9",
-    "@5t111111/fresh-logger": "jsr:@5t111111/fresh-logger",
-    "@5t111111/fresh-session": "jsr:@5t111111/fresh-session",
     "preact": "npm:preact@^10.26.6",
-    "tailwindcss": "npm:tailwindcss@^3.4.1",
-    "tailwindcss/plugin": "npm:/tailwindcss@^3.4.1/plugin.js"
+    "@preact/signals": "npm:@preact/signals@^2.0.4",
+    "tailwindcss": "npm:tailwindcss@^3.4.3",
+    "tailwindcss/plugin": "npm:/tailwindcss@^3.4.3/plugin.js",
+    "@std/log": "jsr:@std/log@^0.224.14",
+    "@5t111111/fresh-logger": "jsr:@5t111111/fresh-logger",
+    "@5t111111/fresh-session": "jsr:@5t111111/fresh-session"
   },
   "exports": {},
   "compilerOptions": {

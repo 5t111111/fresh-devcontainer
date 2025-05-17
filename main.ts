@@ -5,6 +5,7 @@ import { freshLoggerJsonFormatter, logger } from "@5t111111/fresh-logger";
 import * as log from "@std/log";
 
 export const app = new App<State>();
+
 app.use(staticFiles());
 
 app.use(logger());
@@ -86,7 +87,7 @@ app.use(session({
 app.get("/api2/:name", (ctx) => {
   const name = ctx.params.name;
   return new Response(
-    `Hello, ${name.charAt(0).toUpperCase() + name.slice(1)}`,
+    `Hello, ${name.charAt(0).toUpperCase() + name.slice(1)}!`,
   );
 });
 
@@ -98,7 +99,6 @@ const exampleLoggerMiddleware = define.middleware((ctx) => {
 app.use(exampleLoggerMiddleware);
 
 await fsRoutes(app, {
-  dir: "./",
   loadIsland: (path) => import(`./islands/${path}`),
   loadRoute: (path) => import(`./routes/${path}`),
 });

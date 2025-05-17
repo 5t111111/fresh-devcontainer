@@ -13,34 +13,43 @@
     "jsr:@std/crypto@1.0.0-rc.1": "1.0.0-rc.1",
     "jsr:@std/datetime@0.224": "0.224.5",
     "jsr:@std/encoding@0.213": "0.213.1",
+    "jsr:@std/encoding@1": "1.0.5",
     "jsr:@std/encoding@^1.0.0-rc.1": "1.0.5",
     "jsr:@std/encoding@^1.0.5": "1.0.5",
+    "jsr:@std/fmt@1": "1.0.3",
     "jsr:@std/fmt@^1.0.2": "1.0.2",
     "jsr:@std/fmt@^1.0.3": "1.0.3",
+    "jsr:@std/fmt@^1.0.5": "1.0.8",
     "jsr:@std/fmt@~0.225.3": "0.225.6",
-    "jsr:@std/fs@^1.0.4": "1.0.4",
+    "jsr:@std/fs@1": "1.0.17",
+    "jsr:@std/fs@^1.0.11": "1.0.17",
     "jsr:@std/fs@~0.229.1": "0.229.3",
+    "jsr:@std/html@1": "1.0.3",
     "jsr:@std/html@^1.0.3": "1.0.3",
     "jsr:@std/html@~0.224.2": "0.224.2",
     "jsr:@std/http@^1.0.12": "1.0.12",
+    "jsr:@std/http@^1.0.15": "1.0.16",
     "jsr:@std/http@^1.0.7": "1.0.7",
     "jsr:@std/http@^1.0.8": "1.0.8",
-    "jsr:@std/io@0.225": "0.225.0",
+    "jsr:@std/io@~0.225.2": "0.225.2",
     "jsr:@std/json@^1.0.0-rc.1": "1.0.0",
     "jsr:@std/json@~0.213.1": "0.213.1",
     "jsr:@std/jsonc@0.213": "0.213.1",
     "jsr:@std/jsonc@~0.224.1": "0.224.3",
-    "jsr:@std/log@~0.224.8": "0.224.9",
-    "jsr:@std/log@~0.224.9": "0.224.9",
+    "jsr:@std/log@~0.224.14": "0.224.14",
+    "jsr:@std/log@~0.224.9": "0.224.14",
+    "jsr:@std/media-types@1": "1.1.0",
     "jsr:@std/media-types@^1.0.0-rc.1": "1.0.3",
     "jsr:@std/media-types@^1.0.3": "1.0.3",
     "jsr:@std/media-types@^1.1.0": "1.1.0",
     "jsr:@std/net@^1.0.4": "1.0.4",
     "jsr:@std/path@0.213": "0.213.1",
     "jsr:@std/path@0.221": "0.221.0",
+    "jsr:@std/path@1": "1.0.8",
     "jsr:@std/path@1.0.0-rc.1": "1.0.0-rc.1",
     "jsr:@std/path@^1.0.6": "1.0.6",
     "jsr:@std/path@^1.0.8": "1.0.8",
+    "jsr:@std/path@^1.0.9": "1.0.9",
     "jsr:@std/path@~0.225.2": "0.225.2",
     "jsr:@std/semver@~0.224.3": "0.224.3",
     "jsr:@std/streams@^1.0.6": "1.0.6",
@@ -60,7 +69,8 @@
     "npm:preact@^10.24.0": "10.24.1",
     "npm:preact@^10.24.1": "10.24.1",
     "npm:preact@^10.26.6": "10.26.6",
-    "npm:tailwindcss@^3.4.1": "3.4.13_postcss@8.4.47"
+    "npm:tailwindcss@^3.4.1": "3.4.13_postcss@8.4.47",
+    "npm:tailwindcss@^3.4.3": "3.4.13_postcss@8.4.47"
   },
   "jsr": {
     "@brc-dd/iron@1.2.1": {
@@ -88,7 +98,7 @@
         "npm:autoprefixer",
         "npm:cssnano",
         "npm:postcss",
-        "npm:tailwindcss"
+        "npm:tailwindcss@^3.4.1"
       ]
     },
     "@luca/esbuild-deno-loader@0.10.3": {
@@ -135,14 +145,20 @@
     "@std/fmt@1.0.3": {
       "integrity": "97765c16aa32245ff4e2204ecf7d8562496a3cb8592340a80e7e554e0bb9149f"
     },
+    "@std/fmt@1.0.8": {
+      "integrity": "71e1fc498787e4434d213647a6e43e794af4fd393ef8f52062246e06f7e372b7"
+    },
     "@std/fs@0.229.3": {
       "integrity": "783bca21f24da92e04c3893c9e79653227ab016c48e96b3078377ebd5222e6eb",
       "dependencies": [
         "jsr:@std/path@1.0.0-rc.1"
       ]
     },
-    "@std/fs@1.0.4": {
-      "integrity": "2907d32d8d1d9e540588fd5fe0ec21ee638134bd51df327ad4e443aaef07123c"
+    "@std/fs@1.0.17": {
+      "integrity": "1c00c632677c1158988ef7a004cb16137f870aafdb8163b9dce86ec652f3952b",
+      "dependencies": [
+        "jsr:@std/path@^1.0.9"
+      ]
     },
     "@std/html@0.224.2": {
       "integrity": "2f7bfd71081fad988af9ce991750ed1574917dc8e6fae0e151987ea020d1e21a"
@@ -187,8 +203,11 @@
         "jsr:@std/streams@^1.0.8"
       ]
     },
-    "@std/io@0.225.0": {
-      "integrity": "c1db7c5e5a231629b32d64b9a53139445b2ca640d828c26bf23e1c55f8c079b3"
+    "@std/http@1.0.16": {
+      "integrity": "80c8d08c4bfcf615b89978dcefb84f7e880087cf3b6b901703936f3592a06933"
+    },
+    "@std/io@0.225.2": {
+      "integrity": "3c740cd4ee4c082e6cfc86458f47e2ab7cb353dc6234d5e9b1f91a2de5f4d6c7"
     },
     "@std/json@0.213.1": {
       "integrity": "f572b1de605d07c4a5602445dac54bfc51b1fb87a3710a17aed2608bfca54e68"
@@ -209,11 +228,11 @@
         "jsr:@std/json@^1.0.0-rc.1"
       ]
     },
-    "@std/log@0.224.9": {
-      "integrity": "419d04e4d93e6b1a0205ac3f94809621cfec3d328d09fec9ec59cafa3b3fcaee",
+    "@std/log@0.224.14": {
+      "integrity": "257f7adceee3b53bb2bc86c7242e7d1bc59729e57d4981c4a7e5b876c808f05e",
       "dependencies": [
-        "jsr:@std/fmt@^1.0.2",
-        "jsr:@std/fs@^1.0.4",
+        "jsr:@std/fmt@^1.0.5",
+        "jsr:@std/fs@^1.0.11",
         "jsr:@std/io"
       ]
     },
@@ -252,6 +271,9 @@
     },
     "@std/path@1.0.8": {
       "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
+    },
+    "@std/path@1.0.9": {
+      "integrity": "260a49f11edd3db93dd38350bf9cd1b4d1366afa98e81b86167b4e3dd750129e"
     },
     "@std/semver@0.224.3": {
       "integrity": "7bb34b5ad46de2c0c73de0ca3e30081ef64b4361f66abd57c84ff1011c6a1233"
@@ -1474,10 +1496,10 @@
       "jsr:@5t111111/fresh-session@*",
       "jsr:@fresh/core@^2.0.0-alpha.34",
       "jsr:@fresh/plugin-tailwind@^0.0.1-alpha.7",
-      "jsr:@std/log@~0.224.9",
+      "jsr:@std/log@~0.224.14",
       "npm:@preact/signals@^2.0.4",
       "npm:preact@^10.26.6",
-      "npm:tailwindcss@^3.4.1"
+      "npm:tailwindcss@^3.4.3"
     ]
   }
 }
